@@ -5,15 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
-
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
@@ -30,6 +21,18 @@ gem 'bootstrap-sass'
 
 gem 'carrierwave'
 gem 'font-awesome-rails'
+
+
+#for our local server:
+group :development do
+    gem 'sqlite3'
+end
+
+#for Heroku:
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 gem 'httparty'
 # See https://github.com/rails/execjs#readme for more supported runtimes

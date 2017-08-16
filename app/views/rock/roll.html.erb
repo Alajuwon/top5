@@ -1,0 +1,30 @@
+<div class="col-md-6 col-md-offset-12">
+<h2>Lets Rock & Roll</h2>
+</div>
+
+
+  <% @songs.each_with_index do |song, index| %>
+  		<% if index < 4 %>
+    <div class="col-md-6">
+    	<% else %>
+    			<% end %>
+
+        <h2><%= link_to song.name, song %></h2>
+        <p><%= song.artist.name %></p>
+        <p>
+        	<div class="well">
+          <%= song.rating.to_i.times do %><span class= "glyphicon glyphicon-star"></span>
+          <% end %>
+        </p>
+        <p>
+          <%= link_to edit_song_path(song) do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          <% end %>
+          <%= link_to song, method: :delete, data: { confirm: "Are you sure?"} do %>
+          <span class= "glyphicon glyphicon-trash"></span>
+          <% end %>
+        </p>
+      </div>
+    </div>
+    <% end %>
+
